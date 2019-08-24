@@ -64,7 +64,7 @@ export default {
         category: this.selection
       };
       return new Promise((resolve, reject) => {
-        fetch(`.netlify/functions/notify`, {
+        fetch(`.netlify/functions/Notify`, {
           method: "POST",
           body: JSON.stringify(data)
         })
