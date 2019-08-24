@@ -14,16 +14,24 @@
         </div>
         <input type="number" placeholder="Mobile number" v-model="phone" />
       </div>
-      <button class="submit" title="submit" @click="submit" >Submit</button>
+      <button class="submit" title="submit" @click="submit" :disabled="loading==true" :class="[{'disable':loading}]" >Submit</button>
       <button class="close" title="close" @click="$emit('dismiss')">Close</button>
+      <div class="loader" v-if="loading" >
+        <ScaleLoader/>
+      </div>
+      <p class="message">{{message}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import {ScaleLoader} from '@saeris/vue-spinners'
 export default {
   name: 'EnquiryModal',
   props:['selectedType'],
+  components:{
+    ScaleLoader
+  },
   data() {
     return {
       options: [
@@ -40,6 +48,8 @@ export default {
       name:'',
       email:'',
       phone:'',
+      loading:false,
+      message:''
     }
   },
   mounted(){
@@ -52,8 +62,22 @@ export default {
       this.selection = event.target.value;
     },
     submit:function(){
+      this.message = '';
       if (this.isValid(this.name) && this.isValid(this.email) && this.isValid(this.phone) && this.isValid(this.selection)) {
-        this.submitToServer();
+        this.loading = true;
+        this.submitToServer().then(()=>{
+          this.loading = false;
+          this.message = 'We are happy to hear from you, we will contact you soon.'
+          // setTimeout(() => {
+          //   this.$emit('dismiss');
+          // }, 1000);
+        })
+        .catch((err)=>{
+          this.message = err;
+          this.loading = false;
+        })
+      }else{
+        this.message = 'Please fill all details.'
       }
     },
     submitToServer : function(){
@@ -108,6 +132,21 @@ export default {
     background: #fff;
     padding: 16px 32px;
     color: black;
+
+
+    .loader{
+      width: 150px;
+      height: 150px;
+      background: $primary;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+    }
 
     .close {
       position: absolute;
@@ -190,6 +229,17 @@ export default {
       border: 1px solid black;
       padding: 8px 18px;
       cursor: pointer;
+    }
+
+    .disable{
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .message{
+      text-align: center;
+      margin-top: 8px;
+      font-size: 12px;
     }
   }
 }
