@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  functions = "./lambdas"
+  publish = "dist"
+
+  [generate]
+  command = "npm run generate"
+  functions = "./lambdas"
+  publish = "dist"
