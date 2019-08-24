@@ -93,18 +93,40 @@ export default {
       max-width: 668px;
       text-align: center;
       margin: 32px auto;
-    }
+      @include for-phone-only{
+        width: 100%;
+        text-align: justify;
+        padding: 0 16px;
+      }
+    } 
   }
-
   #section-fabrics {
-    padding: 32px 100px;
-    margin-bottom: 64px;
+
+    @include for-tablet-portrait-up{
+      padding: 32px 100px;
+      margin-bottom: 64px;
+    }
+
+    @include for-phone-only{
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+
+    hr{
+      width: 30%;
+      margin: 0 auto;
+    }
+    
     h4 {
       font-weight: 800;
       font-size: 24px;
       color: $primary;
       margin-bottom: 8px;
       letter-spacing: 0.125em;
+
+      @include for-phone-only{
+        text-align: center;
+      }
     }
 
     ul {
@@ -113,12 +135,27 @@ export default {
       justify-content: center;
       list-style: none;
       margin-top: 39px;
+      @include for-phone-only{
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        margin-top: 16px;
+        padding-left: 0;
+        
+      }
 
       li {
         margin: 0 12px;
         font-weight: 500;
         font-size: 14px;
         letter-spacing: 0.16em;
+
+        @include for-phone-only{
+          font-size: 12px;
+          margin: 4px 8px;
+        }
       }
     }
   }
@@ -128,15 +165,29 @@ export default {
     width: 100%;
     margin-bottom: 100px;
 
+    @include for-phone-only{
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+
     .flex {
       display: flex;
       align-items: center;
       justify-content: center;
 
+      @include for-phone-only{
+        flex-wrap: wrap;
+      }
+
       .card {
         max-width: 262px;
         text-align: center;
         margin: 0 32px;
+
+        @include for-phone-only{
+          width: 100%;
+          padding: 12px;
+        }
 
         i {
           color: $primary;
@@ -171,6 +222,11 @@ export default {
     width: 286px;
     cursor: pointer;
     margin-bottom: 32px;
+
+    @include for-phone-only{
+      margin: 0 auto;
+      margin-bottom: 16px;
+    }
   }
 }
 

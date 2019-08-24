@@ -17,6 +17,9 @@
 *:focus{
   outline: none;
 }
+*{
+  -webkit-tap-highlight-color: transparent;
+}
 
 h1,h2,h3,h4,h5,p,button{
   font-family: 'Exo',sans-serif !important; 
@@ -47,4 +50,16 @@ $primary:#FECC00;
 
 .bg-primary{
   background: $primary;
+}
+
+.desktop-only{
+  @include for-phone-only{
+    display: none !important;
+  }
+}
+
+.phone-only{
+  @include for-tablet-portrait-up{
+    display: none !important;
+  }
 }

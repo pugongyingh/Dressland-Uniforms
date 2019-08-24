@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <Toolbar/>
     <nuxt class="pages" />
     <Footer/>
@@ -17,6 +17,13 @@ export default {
   data(){
     return{
 
+    }
+  },
+  head(){
+    return{
+      meta:[
+        { name:'theme-color',content:'#FECC00' }
+      ]
     }
   }
 }
@@ -49,6 +56,13 @@ body{
 
 .pages{
   padding-top: 67px;
+}
+
+.app{
+  @include for-phone-only{
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 </style>

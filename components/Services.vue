@@ -139,19 +139,29 @@ export default {
 }
 #services {
   width: 100%;
-  min-height: 90vh;
-  padding: 32px 100px;
-
+  
+  @include for-tablet-portrait-up{
+      padding: 32px 100px;
+      min-height: 90vh;
+  }
   .title {
     font-weight: 800;
     font-size: 24px;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.125em;
+
+    @include for-phone-only{
+      text-align: center;
+    }
   }
 
   hr {
     border: 0.5px solid rgba(255, 255, 255, 0.295);
+    @include for-phone-only{
+      max-width: 30%;
+      margin: 0 auto;
+    }
   }
 
   .cards {
@@ -162,7 +172,13 @@ export default {
     justify-content: center;
     box-sizing: border-box;
     margin: 0 auto;
-    margin-top: 100px;
+    @include for-tablet-portrait-up{
+      margin-top: 100px;
+    }
+    @include for-phone-only{
+      margin-top: 32px;
+      padding-left: 16px;
+    }
 
     .card {
       width: 129px;
@@ -174,6 +190,13 @@ export default {
       margin-bottom: 25px;
       cursor: pointer;
       transition: 0.2s ease all;
+      @include for-phone-only{
+        width: 70px;
+        height: 100px;
+        margin-right: 16px;
+        margin-bottom: 16px;
+        border-radius: 9px;
+      }
     }
     .data {
       width: 100%;
@@ -183,8 +206,10 @@ export default {
       border-radius: 17px;
       left: 0;
       overflow: hidden;
-
       background: linear-gradient(180deg, #feca0a 0%, #6c5700 100%);
+      @include for-phone-only{
+        border-radius: 9px;
+      }
 
       p {
         font-weight: 800;
@@ -196,6 +221,10 @@ export default {
         transform: translate(-50%, -50%);
         text-align: center;
         text-transform: uppercase;
+
+        @include for-phone-only{
+          font-size: 10px;
+        }
       }
     }
 

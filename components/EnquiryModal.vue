@@ -132,6 +132,13 @@ export default {
     background: #fff;
     padding: 16px 32px;
     color: black;
+    
+    @include for-phone-only{
+      height: 320px !important;
+      width: 300px;
+      top:40%;
+    }
+    
 
 
     .loader{
@@ -174,6 +181,11 @@ export default {
       border: 0.5px solid rgba(0, 0, 0, 0.514);
       padding: 18px 0;
       border-radius: 7px;
+
+      @include for-phone-only{
+        padding: 8px 0;
+        margin: 12px 0;
+      }
     }
 
     select {
@@ -192,6 +204,11 @@ export default {
       border-radius: 7px;
       position: relative;
 
+      @include for-phone-only{
+        padding: 8px 0;
+        margin: 12px 0;
+      }
+
       .box {
         width: 107px;
         display: flex;
@@ -200,6 +217,10 @@ export default {
         position: absolute;
         height: 100%;
         border-right: 0.5px solid rgba(0, 0, 0, 0.514);
+
+        @include for-phone-only{
+          width: 40px;
+        }
 
         p {
           margin: 0;
@@ -229,6 +250,12 @@ export default {
       border: 1px solid black;
       padding: 8px 18px;
       cursor: pointer;
+
+      @include for-phone-only{
+        font-size: 14px;
+        width: 100%;
+        margin-top: 16px;
+      }
     }
 
     .disable{
@@ -240,6 +267,11 @@ export default {
       text-align: center;
       margin-top: 8px;
       font-size: 12px;
+
+      @include for-phone-only{
+        font-size: 12px;
+        margin-top: 12px;
+      }
     }
   }
 }

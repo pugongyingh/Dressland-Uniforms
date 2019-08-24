@@ -69,13 +69,19 @@ export default {
 
 <style lang="scss" scopped>
 #testi {
-  padding: 32px 100px;
   text-align: center;
   width: 100%;
   position: relative;
 
+  @include for-tablet-portrait-up{
+    padding: 32px 100px;
+  }
+
   img {
     margin-bottom: 16px;
+    @include for-phone-only{
+      margin-top: -12px;
+    }
   }
 
   h4 {
@@ -85,6 +91,10 @@ export default {
     letter-spacing: 0.125em;
     color: #feca0a;
     margin-bottom: 32px;
+    @include for-phone-only{
+      text-align: center;
+      margin: 0 64px;
+    }
   }
 
   .content {
@@ -93,7 +103,12 @@ export default {
     padding: 64px;
     position: relative;
     width: 100%;
-    min-height: 350px;
+    min-height: 360px;
+
+    @include for-phone-only{
+      min-height: 200px;
+      margin-top: 48px;
+    }
 
     .slide{
       position: absolute;
@@ -112,6 +127,11 @@ export default {
       margin: 0 auto;
       color: #ffffff;
       min-height: 80px;
+
+      @include for-phone-only{
+        font-size: 12px;
+        min-height: 130px;
+      }
     }
 
     h5 {
@@ -121,6 +141,11 @@ export default {
       letter-spacing: 0.02em;
       color: #feca0a;
       font-style: italic;
+
+      @include for-phone-only{
+        margin-top: 8px;
+        margin-bottom: 16px;
+      }
     }
   }
 
@@ -138,6 +163,12 @@ export default {
     img {
       margin: 0;
     }
+
+    @include for-phone-only{
+      width: 48px;
+      height: 48px;
+      left: 16px;
+    }
   }
 
   .nav-right {
@@ -154,12 +185,20 @@ export default {
     img {
       margin: 0;
     }
+     @include for-phone-only{
+      width: 48px;
+      height: 48px;
+      right: 16px;
+    }
   }
 
   .nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    img{
+      width: 20px;
+    }
     .container {
       position: absolute;
       width: 85%;
@@ -170,7 +209,15 @@ export default {
       transform: scale(0);
       opacity: 0;
       transition: 0.2s ease all;
+
+      @include for-phone-only{
+        width: 32px;
+        height: 32px;
+      }
+      
     }
+
+    
   }
 
   .nav:hover {

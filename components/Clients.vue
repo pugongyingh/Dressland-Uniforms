@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="overlay">
-           <img src="/icons/client_bottom.svg" class="bottom">
+          <img src="/icons/client_bottom.svg" class="bottom" />
         </div>
         <div class="content">
           <h2>OUR CLIENTS</h2>
@@ -11,7 +11,6 @@
             <li v-for="client in clients" :key="client">{{client}}</li>
           </ul>
         </div>
-       
       </div>
       <div class="right">
         <img src="/icons/el_carousel.svg" />
@@ -50,8 +49,14 @@ export default {
 #section-clients {
   position: relative;
   width: 100%;
-  margin-top: 122px;
-  margin-bottom: 96px;
+  @include for-tablet-portrait-up {
+    margin-top: 122px;
+    margin-bottom: 96px;
+  }
+
+  @include for-phone-only{
+    margin-top: 48px;
+  }
 
   .container {
     position: relative;
@@ -64,6 +69,13 @@ export default {
       height: 100%;
       position: relative;
 
+
+      @include for-phone-only {
+        width: 105%;
+        background: #fff;
+        padding: 24px 0;
+      }
+
       .overlay {
         position: absolute;
         background: #fff;
@@ -75,13 +87,23 @@ export default {
         border-radius: 15px;
         z-index: -1;
         overflow: hidden;
+        @include for-phone-only{
+          display: none;
+        }
+        
       }
 
       .content {
+        position: relative;
         color: black;
-        margin-top: 66px;
-        margin-left: 142px;
+        @include for-tablet-portrait-up {
+          margin-top: 66px;
+          margin-left: 142px;
+        }
         text-align: left;
+        @include for-phone-only{
+          padding: 16px;
+        }
 
         h2 {
           margin: 0;
@@ -90,6 +112,12 @@ export default {
           font-size: 36px;
           letter-spacing: 0.125em;
           margin-bottom: 24px;
+
+          @include for-phone-only{
+            font-size: 22px;
+            margin-left: 0;
+            margin-bottom: 16px;;
+          }
         }
 
         ul {
@@ -99,6 +127,10 @@ export default {
           flex-wrap: wrap;
           width: 420px;
           padding: 0;
+          @include for-phone-only{
+            padding-left: 16px;
+            width: 350px;
+          }
 
           li {
             max-width: 200px;
@@ -112,17 +144,20 @@ export default {
         }
       }
 
-      .bottom{
+      .bottom {
         position: absolute;
         bottom: -8px;
       }
-      
     }
     .right {
       width: 40%;
       height: 100%;
       position: relative;
       min-height: 460px;
+
+      @include for-phone-only {
+        display: none;
+      }
 
       img {
         position: absolute;

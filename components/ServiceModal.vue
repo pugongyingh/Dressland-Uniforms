@@ -43,6 +43,7 @@ export default {
   height: 100vh;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.836);
+  
 
   .card {
     position: absolute;
@@ -51,6 +52,12 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include for-phone-only{
+      width: 300px;
+      height: 300px;
+      top:40%;
+    }
 
     .close {
       position: absolute;
@@ -84,12 +91,20 @@ export default {
       width: 70%;
       background-size: cover;
       background-repeat: no-repeat;
+
+      @include for-phone-only{
+        width: 60%;
+      }
     }
     .right {
       width: 30%;
       color: black;
       background: $primary;
       position: relative;
+
+      @include for-phone-only{
+        width: 40%;
+      }
 
       h4 {
         font-weight: 800;
@@ -101,6 +116,12 @@ export default {
         margin-top: 32px;
         margin-bottom: 24px;
         position: relative;
+
+        @include for-phone-only{
+          font-size: 14px;
+          margin-left: 8px;
+          margin-top: 16px;
+        }
 
         &::after {
           content: '';
@@ -115,6 +136,10 @@ export default {
 
       ul {
         padding-left: 40px;
+        
+        @include for-phone-only{
+          padding-left: 20px;
+        }
       }
 
       li {
@@ -122,6 +147,10 @@ export default {
         font-size: 14px;
         letter-spacing: 0.02em;
         color: #161616;
+
+        @include for-phone-only{
+          font-size: 12px;
+        }
       }
 
       .btn {
@@ -138,6 +167,12 @@ export default {
         bottom: 32px;
         left:24px;
         cursor: pointer;
+
+        @include for-phone-only{
+          left:8px;
+          font-size: 12px;
+          bottom: 16px;
+        }
       }
     }
   }
