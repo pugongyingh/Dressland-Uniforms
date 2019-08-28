@@ -49,13 +49,14 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/sitemap',
     '@bazzite/nuxt-netlify',
-    '@nuxtjs/google-analytics', {
-      id: 'UA-146573706-1'
-    }
+    '@nuxtjs/google-analytics'
   ],
+  googleAnalytics: {
+    id: 'UA-146573706-1'
+  },
   netlify: { },
   sitemap:{
-    hostname: 'https://dresslanduniforms.in',
+    hostname: 'https://www.dresslanduniforms.in',
   },
   styleResources: {
     scss: [
