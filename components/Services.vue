@@ -140,10 +140,15 @@ export default {
 
 #services {
   width: 100%;
+
+  @include for-desktop-up{
+     min-height: 90vh;
+  }
   
   @include for-tablet-portrait-up{
       padding: 32px 100px;
-      min-height: 90vh;
+      min-height: 60vh;
+     
   }
 
   @include for-phone-only{

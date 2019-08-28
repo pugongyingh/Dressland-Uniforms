@@ -116,10 +116,13 @@ export default {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-
     overflow: hidden;
 
-    @include for-tablet-portrait-up {
+    @include for-tablet-portrait-up{
+      height: 60vh;
+    }
+
+    @include for-desktop-up{
       height: 100vh;
     }
 
