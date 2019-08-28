@@ -7,8 +7,8 @@
       <Carousel />
     </section>
     <div class="short">
-      <p>We specialize in providing 100% cotton fabric, blends of Polyester-Cottor. We fit the uniforms in our client's budge and provide them with best suitable options for the same.</p>
-      <p>We don't just stop there we provide the best combination of fit &amp; quality to our clients. We provide uniforms in general garment industry sizes and we also take measureaments for sizing according to our clients. We habe in house Uniform Designing as well.</p>
+      <p>We specialize in providing 100% cotton fabric, blends of Polyester-Cotton. We fit the uniforms in our client's need and provide them with best suitable options for the same.</p>
+      <p>We don't just stop there we provide the best combination of fit &amp; quality to our clients. We provide uniforms in general garment industry sizes and we also take measureaments for sizing according to our clients. We have in house Uniform Designing as well.</p>
       <p>Our specialization is in providing high quality embroidery or logo priniting on the uniforms with the latest technologies in the place including sublimation printing. This plays a key role as it gives your brand the best visibility.</p>
     </div>
     <div id="section-products">
@@ -39,8 +39,8 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i>
           </a>
           <p>
-            3247, Mahadwar Rd, Shivaji Peth
-            A Ward, C Ward, Kolhapur, Maharashtra 416012
+            3247/A, Mahadwar Rd, Shivaji Peth
+            , C Ward, Kolhapur, Maharashtra 416012
           </p>
         </div>
         <div class="card">
@@ -48,8 +48,8 @@
           <a title="Call" href="tel:+917066051155">
             <p class="phone">+91 706 605 1155</p>
           </a>
-          <a title="Send Email" href="mailto:dresslanduniforms@gmail.com">
-            <p class="email">dresslanduniforms@gmail.com</p>
+          <a title="Send Email" href="mailto:business@dresslanduniforms.in">
+            <p class="email">business@dresslanduniforms.in</p>
           </a>
           <p class="url">www.dresslanduniforms.in</p>
         </div>
@@ -123,6 +123,8 @@ export default {
         text-align: justify;
         padding: 0 16px;
         margin: 16px auto;
+        font-weight: 100;
+        letter-spacing: 0.05em;
       }
     }
   }

@@ -46,7 +46,7 @@ export default {
     return {
       services: [
         {
-          title: 'Corporate Uniforms (Men, Women)',
+          title: 'Corporate Uniforms (Men & Women)',
           img: '/services/corporate.jpeg',
           content: [
             'Shirts', 'Trousers', 'Blazers', 'Waist Coats', 'Ties', 'Socks',
@@ -71,7 +71,7 @@ export default {
         },
         {
           title: 'Event Uniforms',
-          img: '/services/event.jpeg',
+          img: '/services/event.jpg',
           content: [
             'T-Shirts',
             'Jerseys',
@@ -98,7 +98,7 @@ export default {
         },
         {
           title: 'Hospital Uniforms',
-          img: '/services/hospital.jpeg',
+          img: '/services/hospital.jpg',
           content: [
             'Doctor Uniforms','Patient Uniforms','Staff Uniforms',
             'Bed Linens'
@@ -106,7 +106,7 @@ export default {
         },
         {
           title: 'Accessories',
-          img: '/services/4.jpeg',
+          img: '/services/accessories.jpg',
           content:[
             'Ties','Belts','Socks', 'Caps'
           ]
@@ -114,7 +114,7 @@ export default {
 
         {
           title: 'Custom',
-          img: '/services/2.jpeg',
+          img: '/services/custom.jpg',
           content:[
             'Custom Outfits As Per Requirements' ,
           ]
@@ -193,12 +193,20 @@ export default {
       width: 129px;
       height: 158px;
       position: relative;
-      margin-right: 55px;
+      
+
+      @include for-desktop-up{
+        margin-right: 55px;
+      }
       background-size: cover;
       background-position: center;
       margin-bottom: 25px;
       cursor: pointer;
       transition: 0.2s ease all;
+
+      @include for-tablet-portrait-up{
+        margin: 12px; 
+      }
       @include for-phone-only{
         width: 70px;
         height: 100px;

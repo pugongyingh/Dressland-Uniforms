@@ -75,7 +75,7 @@ export default {
         '/carousel/4.jpeg',
         '/carousel/5.jpeg',
         '/carousel/6.jpeg',
-        '/carousel/7.jpeg',
+        '/carousel/7.jpg',
         '/carousel/8.jpeg'
       ]
     }
@@ -95,7 +95,7 @@ export default {
 
     setInterval(() => {
       this.slide()
-    }, 3000)
+    }, 5000)
   },
   methods: {
     slide: function() {

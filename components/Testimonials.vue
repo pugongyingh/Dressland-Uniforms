@@ -159,6 +159,10 @@ export default {
       color: #feca0a;
       font-style: italic;
 
+      @include for-tablet-portrait-up{
+        margin-top: 8px;
+      }
+
       @include for-phone-only{
         margin-top: 8px;
         margin-bottom: 16px;

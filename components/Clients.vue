@@ -54,10 +54,7 @@ export default {
   data() {
     return {
       clients: [
-        'Volkswagen, Kolhapur',
-        'Ford Kolhapur',
-        'Renault Kolhapur',
-        'Unique Hyundai, Kolhapur',
+        'Unique Automobiles, Kolhapur',
         'Sambaragi Traders',
         'BNI Kolhapur',
         'Hotel Ramee Panchshill',
@@ -65,8 +62,6 @@ export default {
         'Optical Hut',
         'Shree Mahalaxmi Associates',
         'Maknet Industries',
-        'Kolhapur Dental Associates',
-        'The Speciality Dental & Implant Center',
         'Dr. D. Y. Patil Shantiniketan School, Kolhapur'
       ],
       animted: false
