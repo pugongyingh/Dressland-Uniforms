@@ -9,7 +9,7 @@
     <div class="short">
       <p>We specialize in providing 100% cotton fabric, blends of Polyester-Cotton. We fit the uniforms in our client's need and provide them with best suitable options for the same.</p>
       <p>We don't just stop there we provide the best combination of fit &amp; quality to our clients. We provide uniforms in general garment industry sizes and we also take measureaments for sizing according to our clients. We have in house Uniform Designing as well.</p>
-      <p>Our specialization is in providing high quality embroidery or logo priniting on the uniforms with the latest technologies in the place including sublimation printing. This plays a key role as it gives your brand the best visibility.</p>
+      <p>Our specialization is in providing high quality embroidery or logo printing on the uniforms with the latest technologies in the place including sublimation printing. This plays a key role as it gives your brand the best visibility.</p>
     </div>
     <div id="section-products">
       <Services />
