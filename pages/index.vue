@@ -1,13 +1,15 @@
 <template>
-  <main id="home" >
-    <transition name="fade" >
-      <EnquiryModal v-if="enquiryModal" @dismiss="enquiryModal=false"/>
+  <main id="home">
+    <transition name="fade">
+      <EnquiryModal v-if="enquiryModal" @dismiss="enquiryModal=false" />
     </transition>
     <section id="section-home">
       <Carousel />
     </section>
     <div class="short">
-      <p>We specialize in providing 100% cotton fabric,an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.We specialize in providing 100% cotton fabric,an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.We specialize in providing 100% cotton fabric,an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+      <p>We specialize in providing 100% cotton fabric, blends of Polyester-Cottor. We fit the uniforms in our client's budge and provide them with best suitable options for the same.</p>
+      <p>We don't just stop there we provide the best combination of fit &amp; quality to our clients. We provide uniforms in general garment industry sizes and we also take measureaments for sizing according to our clients. We habe in house Uniform Designing as well.</p>
+      <p>Our specialization is in providing high quality embroidery or logo priniting on the uniforms with the latest technologies in the place including sublimation printing. This plays a key role as it gives your brand the best visibility.</p>
     </div>
     <div id="section-products">
       <Services />
@@ -24,11 +26,18 @@
       </ul>
     </section>
     <Testimonials />
-    <Clients />
+    <Clients class="d-cli" />
+    <ClientSlider class="phone-only"/>
     <section id="section-contact">
       <div class="flex">
         <div class="card">
-          <a title="Open in Google Maps" target="_blank" href="https://goo.gl/maps/WFp77GCZ1ShiB3CWA">  <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+          <a
+            title="Open in Google Maps"
+            target="_blank"
+            href="https://goo.gl/maps/WFp77GCZ1ShiB3CWA"
+          >
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+          </a>
           <p>
             3247, Mahadwar Rd, Shivaji Peth
             A Ward, C Ward, Kolhapur, Maharashtra 416012
@@ -36,13 +45,17 @@
         </div>
         <div class="card">
           <i class="fa fa-phone" aria-hidden="true"></i>
-          <a title="Call" href="tel:+917066051155"><p class="phone">+91 706 605 1155</p></a>
-         <a title="Send Email" href="mailto:dresslanduniforms@gmail.com"> <p class="email">dresslanduniforms@gmail.com</p></a>
+          <a title="Call" href="tel:+917066051155">
+            <p class="phone">+91 706 605 1155</p>
+          </a>
+          <a title="Send Email" href="mailto:dresslanduniforms@gmail.com">
+            <p class="email">dresslanduniforms@gmail.com</p>
+          </a>
           <p class="url">www.dresslanduniforms.in</p>
         </div>
       </div>
     </section>
-    <button title="Let us help you!" class="enquire" @click="enquiryModal=true">ENQUIRE</button>    
+    <button title="Let us help you!" class="enquire" @click="enquiryModal=true">ENQUIRE</button>
   </main>
 </template>
 
@@ -51,6 +64,7 @@ import Carousel from '@/components/Carousel'
 import Services from '@/components/Services'
 import Testimonials from '@/components/Testimonials'
 import Clients from '@/components/Clients'
+import ClientSlider from '@/components/ClientSlider'
 
 import EnquiryModal from '@/components/EnquiryModal'
 export default {
@@ -59,7 +73,8 @@ export default {
     Services,
     Testimonials,
     Clients,
-    EnquiryModal
+    EnquiryModal,
+    ClientSlider
   },
   data() {
     return {
@@ -71,7 +86,7 @@ export default {
         'TEREWOOLS',
         'POLYSTER'
       ],
-      enquiryModal:false
+      enquiryModal: false
     }
   }
 }
@@ -86,37 +101,56 @@ export default {
     border: 0.5px solid rgba(255, 255, 255, 0.473);
   }
 
+  .d-cli{
+    @include for-phone-only{
+      display: none;
+    }
+  }
+
   .short {
+
+    @include for-phone-only{
+      padding-top: 32px;
+    }
     p {
       font-weight: 500;
       font-size: 14px;
       max-width: 668px;
       text-align: center;
       margin: 32px auto;
-      @include for-phone-only{
+      @include for-phone-only {
         width: 100%;
         text-align: justify;
         padding: 0 16px;
+        margin: 16px auto;
       }
-    } 
+    }
   }
   #section-fabrics {
-
-    @include for-tablet-portrait-up{
+    @include for-tablet-portrait-up {
       padding: 32px 100px;
       margin-bottom: 64px;
     }
 
-    @include for-phone-only{
-      margin-top: 32px;
+    @include for-phone-only {
+      margin-bottom: 32px;
+
+      padding: 48px 0;
+    }
+
+    @include for-tablet-only {
       margin-bottom: 32px;
     }
 
-    hr{
-      width: 30%;
-      margin: 0 auto;
+    hr {
+      width: 100%;
+
+      @include for-phone-only {
+        width: 30%;
+        margin: 0 auto;
+      }
     }
-    
+
     h4 {
       font-weight: 800;
       font-size: 24px;
@@ -124,7 +158,7 @@ export default {
       margin-bottom: 8px;
       letter-spacing: 0.125em;
 
-      @include for-phone-only{
+      @include for-phone-only {
         text-align: center;
       }
     }
@@ -135,7 +169,7 @@ export default {
       justify-content: center;
       list-style: none;
       margin-top: 39px;
-      @include for-phone-only{
+      @include for-phone-only {
         width: 100%;
         flex-wrap: wrap;
         align-items: center;
@@ -143,7 +177,6 @@ export default {
         text-align: left;
         margin-top: 16px;
         padding-left: 0;
-        
       }
 
       li {
@@ -152,7 +185,7 @@ export default {
         font-size: 14px;
         letter-spacing: 0.16em;
 
-        @include for-phone-only{
+        @include for-phone-only {
           font-size: 12px;
           margin: 4px 8px;
         }
@@ -165,7 +198,7 @@ export default {
     width: 100%;
     margin-bottom: 100px;
 
-    @include for-phone-only{
+    @include for-phone-only {
       margin-top: 48px;
       margin-bottom: 48px;
     }
@@ -175,7 +208,7 @@ export default {
       align-items: center;
       justify-content: center;
 
-      @include for-phone-only{
+      @include for-phone-only {
         flex-wrap: wrap;
       }
 
@@ -184,7 +217,7 @@ export default {
         text-align: center;
         margin: 0 32px;
 
-        @include for-phone-only{
+        @include for-phone-only {
           width: 100%;
           padding: 12px;
         }
@@ -215,7 +248,7 @@ export default {
     letter-spacing: 0.125em;
     color: #000000;
     background: $primary;
-    margin:64px auto;
+    margin: 64px auto;
     border: none;
     padding: 8px 14px;
     border-radius: 29px;
@@ -223,7 +256,7 @@ export default {
     cursor: pointer;
     margin-bottom: 32px;
 
-    @include for-phone-only{
+    @include for-phone-only {
       margin: 0 auto;
       margin-bottom: 16px;
     }

@@ -33,7 +33,7 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
- plugins: ['~/plugins/scrollspy'],
+ plugins: ['~/plugins/scrollspy','~/plugins/vueInView'],
   /*
   ** Nuxt.js dev-modules
   */

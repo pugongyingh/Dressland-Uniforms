@@ -1,5 +1,5 @@
 <template>
-  <section id="section-clients">
+  <section id="section-clients" v-inview:enter="playAnim">
     <div class="container">
       <div class="left">
         <div class="overlay">
@@ -13,33 +13,83 @@
         </div>
       </div>
       <div class="right">
-        <img src="/icons/el_carousel.svg" />
+        <!-- <img src="/icons/el_carousel.svg" /> -->
+        <svg
+          width="379"
+          height="280"
+          viewBox="0 0 379 280"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="img"
+        >
+          <path
+            d="M0 231.136H279.034L263.586 279H170.414L213.379 122.837H111.034L123.103 79.807H356.276L378 1H213.379L162.207 170.701H0"
+            stroke="url(#paint0_linear)"
+            stroke-width="0.5"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear"
+              x1="189"
+              y1="1"
+              x2="189"
+              y2="279"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#999999" />
+              <stop offset="1" stop-color="white" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import anime from 'animejs/lib/anime.es.js'
+import inView from 'in-view'
 export default {
   name: 'ClientComponent',
   data() {
     return {
       clients: [
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory',
-        'Sound Casting',
-        'Gokul Milk Factory'
-      ]
+        'Volkswagen, Kolhapur',
+        'Ford Kolhapur',
+        'Renault Kolhapur',
+        'Unique Hyundai, Kolhapur',
+        'Sambaragi Traders',
+        'BNI Kolhapur',
+        'Hotel Ramee Panchshill',
+        'Kirnik Rain Water Harverster',
+        'Optical Hut',
+        'Shree Mahalaxmi Associates',
+        'Maknet Industries',
+        'Kolhapur Dental Associates',
+        'The Speciality Dental & Implant Center',
+        'Dr. D. Y. Patil Shantiniketan School, Kolhapur'
+      ],
+      animted: false
+    }
+  },
+  mounted() {},
+  methods: {
+    playAnim: function() {
+      if (this.animted) {
+        return
+      }
+      this.animted = true
+      anime({
+        targets: '.img path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 3000,
+        delay: function(el, i) {
+          return i * 250
+        },
+        direction: 'forwards',
+        loop: false
+      })
     }
   }
 }
@@ -49,12 +99,13 @@ export default {
 #section-clients {
   position: relative;
   width: 100%;
+  overflow: hidden;
   @include for-tablet-portrait-up {
     margin-top: 122px;
     margin-bottom: 96px;
   }
 
-  @include for-phone-only{
+  @include for-phone-only {
     margin-top: 48px;
   }
 
@@ -69,11 +120,18 @@ export default {
       height: 100%;
       position: relative;
 
-
       @include for-phone-only {
         width: 105%;
         background: #fff;
         padding: 24px 0;
+      }
+
+      @include for-desktop-small-only {
+        width: 60%;
+      }
+
+      @include for-tablet-only {
+        width: 80%;
       }
 
       .overlay {
@@ -87,10 +145,9 @@ export default {
         border-radius: 15px;
         z-index: -1;
         overflow: hidden;
-        @include for-phone-only{
+        @include for-phone-only {
           display: none;
         }
-        
       }
 
       .content {
@@ -101,8 +158,16 @@ export default {
           margin-left: 142px;
         }
         text-align: left;
-        @include for-phone-only{
+        @include for-phone-only {
           padding: 16px;
+        }
+
+        @include for-desktop-small-only {
+          margin-left: 64px;
+        }
+
+        @include for-tablet-only {
+          margin-left: 64px;
         }
 
         h2 {
@@ -113,10 +178,10 @@ export default {
           letter-spacing: 0.125em;
           margin-bottom: 24px;
 
-          @include for-phone-only{
+          @include for-phone-only {
             font-size: 22px;
             margin-left: 0;
-            margin-bottom: 16px;;
+            margin-bottom: 16px;
           }
         }
 
@@ -127,7 +192,7 @@ export default {
           flex-wrap: wrap;
           width: 420px;
           padding: 0;
-          @include for-phone-only{
+          @include for-phone-only {
             padding-left: 16px;
             width: 350px;
           }
@@ -155,15 +220,24 @@ export default {
       position: relative;
       min-height: 460px;
 
+      @include for-tablet-only {
+        width: 20%;
+      }
+
       @include for-phone-only {
         display: none;
       }
 
-      img {
+      .img {
         position: absolute;
         bottom: 0;
-        right: 0;
+        right: -70px;
         transform: rotateY(180deg);
+
+        @include for-tablet-only {
+          right: 0;
+          width: 200px;
+        }
       }
     }
   }

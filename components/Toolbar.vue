@@ -98,6 +98,10 @@ export default {
     height: 60px;
   }
 
+  @include for-tablet-only{
+    height: 55px;
+  }
+
   .nuxt-link-exact-active {
     font-weight: bold;
   }
@@ -109,9 +113,18 @@ export default {
       height: 60px;
     }
 
+    @include for-tablet-only{
+      height: 55px;
+    }
+
+  
+
     img {
       height: 101%;
       object-fit: contain;
+      @include for-tablet-only{
+        object-fit: cover;
+      }
     }
   }
 
@@ -135,9 +148,18 @@ export default {
     align-items: center;
 
     a {
-      margin-right: 41px;
+      
       text-transform: uppercase;
       position: relative;
+
+      @include for-tablet-portrait-up{
+        margin-right: 41px;
+      }
+
+      @include for-tablet-only{
+        margin-right: 12px;
+        font-size: 11px;
+      }
 
       &::after {
         content: '';
@@ -151,6 +173,7 @@ export default {
         width: 0;
       }
     }
+    
   }
 
   .p-menu {

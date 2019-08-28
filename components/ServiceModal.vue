@@ -1,13 +1,14 @@
 <template>
   <div id="service-modal">
-    <div class="card">
+     <div class="card">
       <button title="close" class="close" @click="$emit('dismiss')">Close</button>
       <div class="container">
         <div class="left" :style="{'background-image':`url(${selectedService.img})`}"></div>
         <div class="right">
           <h4>{{selectedService.title}}</h4>
           <ul>
-            <li v-for="item in selectedService.content" :key="item">{{item}}</li>
+            <li v-for="(item,index) in selectedService.content"  :key="index" v-if="index<10">{{item}} 
+             </li>
           </ul>
           <button class="btn" @click="enquiryModal = true">Enquire</button>
         </div>
@@ -28,13 +29,26 @@ export default {
   },
   data(){
     return{
-      enquiryModal:false
+      enquiryModal:false,
+      cardActive:false
     }
+  },
+  mounted(){
+   
   }
 }
 </script>
 
 <style lang="scss" scopped>
+// .scale-enter-active,
+// .scale-leave-active {
+//   transition: all 0.2s ease;
+// }
+// .scale-enter, .scale-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+//   transform: scale(0) !important;
+//   border-radius: 50%;
+// }
 #service-modal {
   position: fixed;
   top: 0;
@@ -85,15 +99,22 @@ export default {
       border-radius: 15px;
       display: flex;
       overflow: hidden;
+      
+      @include for-phone-only{
+        flex-direction: column;
+      }
     }
 
     .left {
       width: 70%;
       background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
 
       @include for-phone-only{
-        width: 60%;
+        width: 100%;
+        height: 100%;
+        
       }
     }
     .right {
@@ -101,9 +122,12 @@ export default {
       color: black;
       background: $primary;
       position: relative;
+      
 
       @include for-phone-only{
-        width: 40%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
       }
 
       h4 {
@@ -119,7 +143,7 @@ export default {
 
         @include for-phone-only{
           font-size: 14px;
-          margin-left: 8px;
+          margin-left: 16px;
           margin-top: 16px;
         }
 
@@ -139,6 +163,11 @@ export default {
         
         @include for-phone-only{
           padding-left: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          position: relative;
+          margin-left: 8px;
         }
       }
 
@@ -147,9 +176,11 @@ export default {
         font-size: 14px;
         letter-spacing: 0.02em;
         color: #161616;
+        padding-right: 4px;
 
         @include for-phone-only{
           font-size: 12px;
+          margin-right: 24px;
         }
       }
 
@@ -169,9 +200,13 @@ export default {
         cursor: pointer;
 
         @include for-phone-only{
-          left:8px;
           font-size: 12px;
-          bottom: 16px;
+          position: relative;
+          bottom: auto;
+          left: 16px;
+          margin: 16px 0;
+          
+        
         }
       }
     }

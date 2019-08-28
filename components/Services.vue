@@ -18,13 +18,14 @@
               <span
                 v-for="(item,i) in service.content"
                 :key="item"
+                v-if="i<5"
               >{{item}}{{i != service.content.length-1 ? `, `:'.'}}</span>
             </p>
           </div>
         </div>
       </div>
     </div>
-    <transition name="slide">
+    <transition name="scale">
       <ServiceModal
         v-if="modalState"
         v-bind:selectedService="services[clickedServiceIndex]"
@@ -46,78 +47,77 @@ export default {
       services: [
         {
           title: 'Corporate Uniforms (Men, Women)',
-          img: '/icons/school.jpg',
+          img: '/services/corporate.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'Shirts', 'Trousers', 'Blazers', 'Waist Coats', 'Ties', 'Socks',
+            'Sarees',
+            'Kurtis',
+            'Shirts',
+            'Pants',
+            'Blazers',
+            'Scarfs'
           ]
         },
         {
           title: 'Workshop Uniforms',
-          img: '/icons/school.jpg',
+          img: '/services/workshop.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'Sweaters',
+            'Dungarees',
+            'Body Suits',
+            'Shirts',
+            'Trousers'
           ]
         },
         {
           title: 'Event Uniforms',
-          img: '/icons/school.jpg',
+          img: '/services/event.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'T-Shirts',
+            'Jerseys',
+            'Cycling Speed Suits',
+            'Shirts',
+            'Trousers'
           ]
         },
         {
           title: 'School Uniforms',
-          img: '/icons/school.jpg',
+          img: '/services/school.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'Blazers', 'Shirts', 'Trousers', 'Half Pant', 'Sweaters', 'Dungarees', 'T-Shirts','Track Pants', 'Pinafores','Tops',
+            'Skirts','Frocks','Ties','Socks','Belts','Caps','Bags'
           ]
         },
         {
           title: 'Hospitality Uniforms',
-          img: '/icons/school.jpg',
+          img: '/services/hospitality.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'Chef Uniforms','Caps','Waiter Uniforms','Manager Uniforms',
+            'Housekeeping Uniforms','Blazers','Waistcoat','Security Uniforms'
           ]
         },
         {
           title: 'Hospital Uniforms',
-          img: '/icons/school.jpg',
+          img: '/services/hospital.jpeg',
           content: [
-            'Blazer',
-            'Tshirts,Trouser',
-            'Halfpant',
-            'Pinafores',
-            'Track Pant'
+            'Doctor Uniforms','Patient Uniforms','Staff Uniforms',
+            'Bed Linens'
           ]
         },
         {
           title: 'Accessories',
-          img: '/icons/school.jpg'
+          img: '/services/4.jpeg',
+          content:[
+            'Ties','Belts','Socks', 'Caps'
+          ]
         },
 
         {
           title: 'Custom',
-          img: '/icons/school.jpg'
+          img: '/services/2.jpeg',
+          content:[
+            'Custom Outfits As Per Requirements' ,
+          ]
         }
       ],
       modalState: false,
@@ -128,21 +128,26 @@ export default {
 </script>
 
 <style lang="scss" scopped>
-.slide-enter-active,
-.slide-leave-active {
+.scale-enter-active,
+.scale-leave-active {
   transition: all 0.2s ease;
 }
-.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.scale-enter, .scale-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0) !important;
   border-radius: 50%;
 }
+
 #services {
   width: 100%;
   
   @include for-tablet-portrait-up{
       padding: 32px 100px;
       min-height: 90vh;
+  }
+
+  @include for-phone-only{
+    padding: 48px 0;
   }
   .title {
     font-weight: 800;
@@ -178,6 +183,10 @@ export default {
     @include for-phone-only{
       margin-top: 32px;
       padding-left: 16px;
+    }
+
+    @include for-tablet-only{
+      margin-top: 32px;
     }
 
     .card {

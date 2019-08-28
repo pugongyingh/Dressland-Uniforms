@@ -48,7 +48,7 @@ export default {}
         text-align: center;
         padding: 0 24px;
         text-align: justify;
-        letter-spacing: 0;
+        letter-spacing: 0.05em;
       }
     }
   }
