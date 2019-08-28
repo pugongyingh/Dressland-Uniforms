@@ -124,7 +124,7 @@ export default {
         padding: 0 16px;
         margin: 16px auto;
         font-weight: 100;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
       }
     }
   }
