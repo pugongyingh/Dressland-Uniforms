@@ -6,7 +6,7 @@
           <img src="/icons/client_bottom.svg" class="bottom" />
         </div>
         <div class="content">
-          <h2>OUR CLIENTS</h2>
+          <h2>A FEW OF OUR CLIENTS</h2>
           <ul>
             <li v-for="client in clients" :key="client">{{client}}</li>
           </ul>
