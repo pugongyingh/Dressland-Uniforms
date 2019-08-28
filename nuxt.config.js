@@ -13,7 +13,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'You Check This Site Out' }
+      { hid: 'description', name: 'description', content: `Dressland is Kolhapur's oldest and the most trusted brand providing uniforms for Corporate, Workshop, Events, School, Hospital & Hospitalty Sector.` }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
