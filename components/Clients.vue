@@ -57,7 +57,7 @@ export default {
         'Unique Automobiles, Kolhapur',
         'Sambaragi Traders',
         'BNI Kolhapur',
-        'Hotel Ramee Panchshill',
+        'Hotel Ramee Panchshil',
         'Kirnik Rain Water Harverster',
         'Optical Hut',
         'Shree Mahalaxmi Associates',
