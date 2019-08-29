@@ -25,6 +25,7 @@ exports.handler = function(event, context, callback) {
 	}
 
 	const payload = JSON.parse(event.body);
+	console.log('payload',payload)
 
 	// validate the form
 	if (!payload.name || !payload.email || !payload.category || !payload.phone) {

@@ -216,7 +216,7 @@ export default {
         email: this.email,
         phone: this.phone,
         category: this.selection,
-        subCategories: this.subCategories
+        subCategories: this.subCategories.toString()
       }
       return new Promise((resolve, reject) => {
         fetch(`.netlify/functions/Notify`, {
@@ -287,7 +287,8 @@ export default {
     @include for-phone-only {
       height: auto;
       width: 300px;
-      top: 45%;
+      top: 50%;
+      
     }
 
     @include for-tablet-only {
@@ -309,6 +310,11 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 8px;
+
+
+      @include for-phone-only{
+        padding: 4px;
+      }
       
 
       h5 {
