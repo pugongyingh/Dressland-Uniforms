@@ -216,7 +216,7 @@ export default {
         email: this.email,
         phone: this.phone,
         category: this.selection,
-        subCategories: this.subCategories.toString()
+        subCategories: this.selectedSubCategories.toString()
       }
       return new Promise((resolve, reject) => {
         fetch(`.netlify/functions/Notify`, {
