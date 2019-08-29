@@ -25,7 +25,6 @@ exports.handler = function(event, context, callback) {
 	}
 
 	const payload = JSON.parse(event.body);
-	console.log('payload',payload)
 
 	// validate the form
 	if (!payload.name || !payload.email || !payload.category || !payload.phone) {
@@ -41,7 +40,7 @@ exports.handler = function(event, context, callback) {
 	//send the email
 	sgMail.setApiKey(API_KEY);
 	const msg = {
-		to: ['lambrohan@gmail.com'],
+		to: ['business@dresslanduniforms.in'],
 		from: "WebSubmission@formecmedia.com",
 		subject: "Your Website Has New Form Submission!",
 		text: `Submission Details: \n\nUser Name: ${payload.name}\n\nEmail: ${payload.email}\n\nPhone: ${payload.phone}\n\nCategory: ${payload.category}\n\nSub Category: ${payload.subCategories}`
