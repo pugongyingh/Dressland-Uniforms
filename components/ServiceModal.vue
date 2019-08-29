@@ -10,8 +10,7 @@
             <li
               v-for="(item,index) in selectedService.content"
               :key="index"
-              :title="` Click to enquire about ${item}`"
-              @click=" subType=item; enquiryModal = true"
+
             >{{item}}</li>
           </ul>
           <button class="btn" @click="enquiryModal = true">Enquire</button>
@@ -23,7 +22,7 @@
         v-if="enquiryModal"
         @dismiss="enquiryModal=false; $emit('dismiss')"
         v-bind:selectedType="selectedService.title"
-        v-bind:subType="subType"
+      
       />
     </transition>
   </div>
@@ -40,10 +39,14 @@ export default {
     return {
       enquiryModal: false,
       cardActive: false,
-      subType:null
+      subType: null,
+      subTypes: []
     }
   },
-  mounted() {}
+  methods: {
+    
+  },
+  computed: {}
 }
 </script>
 
@@ -69,7 +72,7 @@ export default {
   .card-service {
     position: absolute;
     width: 55%;
-    @include for-desktop-up{
+    @include for-desktop-up {
       height: 600px;
     }
     @include for-tablet-portrait-up {
@@ -79,7 +82,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @include for-tablet-only{
+    @include for-tablet-only {
       height: auto;
     }
 
@@ -221,15 +224,19 @@ export default {
           margin-right: 24px;
         }
 
-        @include for-tablet-only{
+        @include for-tablet-only {
           font-size: 12px;
           margin-right: 24px;
         }
       }
 
-      li:hover{
-        color: #fff;
+      li:hover {
+        
         cursor: pointer;
+      }
+
+      .type-active {
+        color: #fff;
       }
 
       .btn {
@@ -255,7 +262,7 @@ export default {
           margin: 16px 0;
         }
 
-        @include for-tablet-only{
+        @include for-tablet-only {
           font-size: 12px;
           position: relative;
           bottom: auto;

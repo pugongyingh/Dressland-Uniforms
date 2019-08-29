@@ -27,7 +27,7 @@ exports.handler = function(event, context, callback) {
 	const payload = JSON.parse(event.body);
 
 	// validate the form
-	if (!payload.name || !payload.email || !payload.category || !payload.phone || payload.subCategory) {
+	if (!payload.name || !payload.email || !payload.category || !payload.phone) {
 		return callback(null, {
 			statusCode: 422,
 			headers,
@@ -43,7 +43,7 @@ exports.handler = function(event, context, callback) {
 		to: ['lambrohan@gmail.com'],
 		from: "WebSubmission@formecmedia.com",
 		subject: "Your Website Has New Form Submission!",
-		text: `Submission Details: \n\nUser Name: ${payload.name}\n\nEmail: ${payload.email}\n\nPhone: ${payload.phone}\n\nCategory: ${payload.category}\n\nSub Category: ${payload.subCategory}`
+		text: `Submission Details: \n\nUser Name: ${payload.name}\n\nEmail: ${payload.email}\n\nPhone: ${payload.phone}\n\nCategory: ${payload.category}\n\nSub Category: ${payload.subCategories}`
 	};
 
 	sgMail.send(msg).then(()=>{
