@@ -23,6 +23,7 @@
         </div>
       </div>
       <input type="text" placeholder="Enter your name" v-model="name" />
+      <input type="text" placeholder="Enter your company name" v-model="company" />
       <input type="email" placeholder="Enter your email" v-model="email" />
       <div class="phone">
         <div class="box">
@@ -162,26 +163,24 @@ export default {
       name: '',
       email: '',
       phone: '',
+      company: '',
       loading: false,
       message: '',
-      subCategories:[],
-      selectedSubCategories:[]
-
+      subCategories: [],
+      selectedSubCategories: []
     }
   },
   mounted() {
     if (this.selectedType) {
       this.selection = this.selectedType
     }
-    this.refreshSelection();
-   
-    
+    this.refreshSelection()
   },
   methods: {
     updateSelection: function() {
-      this.selection = event.target.value;
-      this.selectedSubCategories = [];
-      this.refreshSelection();
+      this.selection = event.target.value
+      this.selectedSubCategories = []
+      this.refreshSelection()
     },
     submit: function() {
       this.message = ''
@@ -189,8 +188,8 @@ export default {
         this.isValid(this.name) &&
         this.isValid(this.email) &&
         this.isValid(this.phone) &&
-        this.isValid(this.selection)
-        
+        this.isValid(this.selection) &&
+        this.isValid(this.company)
       ) {
         this.loading = true
         this.submitToServer()
@@ -214,6 +213,7 @@ export default {
       const data = {
         name: this.name,
         email: this.email,
+        company: this.company,
         phone: this.phone,
         category: this.selection,
         subCategories: this.selectedSubCategories.toString()
@@ -241,24 +241,24 @@ export default {
     },
     toggleSubType: function(subType) {
       if (this.isSelected(subType)) {
-         this.selectedSubCategories = this.selectedSubCategories.filter((item)=> item != subType)
-      }else{
+        this.selectedSubCategories = this.selectedSubCategories.filter(
+          item => item != subType
+        )
+      } else {
         this.selectedSubCategories.push(subType)
       }
     },
     isSelected: function(subType) {
       return this.selectedSubCategories.includes(subType)
     },
-    refreshSelection:function(){
-       const item = this.services.find(item => item.title == this.selection)
+    refreshSelection: function() {
+      const item = this.services.find(item => item.title == this.selection)
       if (item) {
-        this.subCategories = [ ...item.content];
+        this.subCategories = [...item.content]
       }
     }
   },
-  computed: {
-    
-  }
+  computed: {}
 }
 </script>
 
@@ -288,15 +288,15 @@ export default {
       height: auto;
       width: 300px;
       top: 50%;
-      
     }
 
     @include for-tablet-only {
       width: 500px;
     }
 
-    p,span{
-      @include for-phone-only{
+    p,
+    span {
+      @include for-phone-only {
         font-size: 13px;
       }
     }
@@ -311,11 +311,9 @@ export default {
       justify-content: center;
       margin-top: 8px;
 
-
-      @include for-phone-only{
+      @include for-phone-only {
         padding: 4px;
       }
-      
 
       h5 {
         margin: 4px;
@@ -329,7 +327,7 @@ export default {
         transition: 0.2s ease all;
         border: 0.5px solid transparent;
 
-        @include for-phone-only{
+        @include for-phone-only {
           font-size: 12px;
         }
       }

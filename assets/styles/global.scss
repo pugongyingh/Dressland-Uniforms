@@ -22,6 +22,9 @@
   @media (min-width: 600px) and (max-width:800px) { @content; }
 }
 
+$primary:#FECC00;
+
+
 
 
 *:focus{
@@ -48,11 +51,10 @@ a{
 
 ::selection {
   color: black; 
-  background: white;
+  background: $primary;
 }
 
 
-$primary:#FECC00;
 
 .primary{
   color: $primary;
